@@ -75,6 +75,23 @@ public abstract class EnglishGreeterWithRecording implements Greeter {
 EnglishGreeterWithRecording greeter = EnglishGreeterWithRecordingImpl.newInstance(new EnglishGreeter());
 ```
 
+Installation
+------------
+
+```
+repositories {
+    jcenter()
+    maven {
+        url "http://dl.bintray.com/srym/maven"
+    }
+}
+```
+
+```
+annotationProcessor 'us.shiroyama.android:cuckoo-processor:0.1.0'
+provided 'us.shiroyama.android:cuckoo:0.1.0'
+```
+
 ### License
 
 ```

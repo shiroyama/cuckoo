@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'com.novoda.bintray-release'
 
 dependencies {
     compile project(':library')
@@ -9,3 +10,12 @@ dependencies {
 targetCompatibility = JavaVersion.VERSION_1_8
 sourceCompatibility = JavaVersion.VERSION_1_8
 
+publish {
+    userOrg = 'srym'
+    groupId = 'us.shiroyama.android'
+    artifactId = 'cuckoo-processor'
+    version = '0.1.0'
+    description = 'A library that helps you implement Delegation Pattern easily'
+    website = 'https://github.com/srym/cuckoo'
+    licences = ['Apache-2.0']
+}
