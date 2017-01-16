@@ -10,7 +10,7 @@ How to use
 
 ### Create Delegation Template
 
-Say you have an interface `Greeter` and its implementation class `EnglishCreeter` like below,
+Say you have an interface `Greeter` and its implementation class `EnglishGreeter` like below,
 
 ```java
 public interface Greeter {
@@ -77,15 +77,6 @@ EnglishGreeterWithRecording greeter = EnglishGreeterWithRecordingImpl.newInstanc
 
 Installation
 ------------
-
-```
-repositories {
-    jcenter()
-    maven {
-        url "http://dl.bintray.com/srym/maven"
-    }
-}
-```
 
 ```
 annotationProcessor 'us.shiroyama.android:cuckoo-processor:0.1.0'
