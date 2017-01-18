@@ -1,5 +1,7 @@
 package us.shiroyama.android.cuckoo.processor;
 
+import android.annotation.TargetApi;
+
 import com.google.auto.service.AutoService;
 import com.google.common.collect.ImmutableSet;
 import com.squareup.javapoet.ClassName;
@@ -74,6 +76,7 @@ public class DelegationProcessor extends AbstractProcessor {
         filer = env.getFiler();
     }
 
+    @TargetApi(24)
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnvironment) {
         if (annotations.size() == 0) {
@@ -112,6 +115,7 @@ public class DelegationProcessor extends AbstractProcessor {
         return true;
     }
 
+    @TargetApi(24)
     private List<ExecutableElement> getConstructorElements(TypeElement originalClass) {
         return originalClass.getEnclosedElements()
                 .stream()
@@ -120,6 +124,7 @@ public class DelegationProcessor extends AbstractProcessor {
                 .collect(Collectors.toList());
     }
 
+    @TargetApi(24)
     private List<ExecutableElement> getOverriddenElements(TypeElement originalClass) {
         return originalClass.getEnclosedElements()
                 .stream()
@@ -129,6 +134,7 @@ public class DelegationProcessor extends AbstractProcessor {
                 .collect(Collectors.toList());
     }
 
+    @TargetApi(24)
     private List<ExecutableElement> getOverridingElements(TypeElement originalClass) {
         return originalClass.getInterfaces()
                 .stream()
@@ -161,6 +167,7 @@ public class DelegationProcessor extends AbstractProcessor {
         return methodToFieldNameMap;
     }
 
+    @TargetApi(24)
     private List<MethodSpec> getConstructorSpecs(List<ExecutableElement> constructorElements, TypeElement originalClass) {
         return constructorElements.stream()
                 .map(constructor -> {
@@ -193,6 +200,7 @@ public class DelegationProcessor extends AbstractProcessor {
                 .collect(Collectors.toList());
     }
 
+    @TargetApi(24)
     private List<MethodSpec> getMethodSpecs(List<ExecutableElement> overridingMethods, Map<ExecutableElement, String> methodToFieldMap) {
         return overridingMethods
                 .stream()
@@ -236,6 +244,7 @@ public class DelegationProcessor extends AbstractProcessor {
         return hasTheSameName && isSubsignature;
     }
 
+    @TargetApi(24)
     private boolean sameMethodExisting(List<ExecutableElement> methods, ExecutableElement method) {
         return methods
                 .stream()
@@ -244,6 +253,7 @@ public class DelegationProcessor extends AbstractProcessor {
                         (before, after) -> before || after);
     }
 
+    @TargetApi(24)
     private Modifier[] getModifiers(TypeElement originalClass) {
         List<Modifier> modifiers = originalClass.getModifiers()
                 .stream()
